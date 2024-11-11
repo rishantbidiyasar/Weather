@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+      body {
+          background-color: #f9e79f; /* Light yellow background */
+          color: #2e86c1; /* Blue text */
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 50px;
+      }
+      h1 {
+          color: #1f618d; /* Darker blue for the header */
+      }
+      form {
+          margin: 20px 0;
+      }
+      input[type="text"] {
+          padding: 10px;
+          border: 2px solid #2e86c1;
+          border-radius: 5px;
+          width: 200px;
+      }
+      input[type="submit"] {
+          background-color: #2e86c1;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      input[type="submit"]:hover {
+          background-color: #1f618d;
+      }
+      .result {
+          margin-top: 20px;
+          padding: 15px;
+          border: 1px solid #2e86c1;
+          border-radius: 5px;
+          background-color: #ffffff;
+      }
+  </style>
+</head>
+<body>
+  <h1>Weather App</h1>
+  <form method="POST">
+      <input type="text" name="city" placeholder="Enter city name" required>
+      <input type="submit" value="Get Weather">
+  </form>
+  {% if data %}
+  <div class="result">
+      <h2>Weather in {{ data.country_code }}</h2>
+      <p>Coordinates: {{ data.coordinate }}</p>
+      <p>Temperature: {{ data.temp }}</p>
+      <p>Pressure: {{ data.pressure }} hPa</p>
+      <p>Humidity: {{ data.humidity }}%</p>
+  </div>
+  {% endif %}
+</body>
+</html>
