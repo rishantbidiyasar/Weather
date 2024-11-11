@@ -11,17 +11,18 @@ def weather():
 		city = request.form['city'] 
 	else: 
 		
-		city = 'delhi'
+		city ='delhi'
 
 	
-	api ='86533df1c302d2d11cb7cda2898b8db4'
+	api ='0383efdbfa9528f52c9bed05cd2f67e8'
 
 	source = urllib.request.urlopen(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}').read() 
 	list_of_data = json.loads(source) 
 
 	# data for variable list_of_data 
 	data = { 
-		"country_code": str(list_of_data['sys']['country']), 
+		"country_code": str(list_of_data['sys']['country']),
+		"city": str(list_of_data['name']),
 		"coordinate": str(list_of_data['coord']['lon']) + ' '
 					+ str(list_of_data['coord']['lat']), 
 		"temp": str(list_of_data['main']['temp']) + 'k', 

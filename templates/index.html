@@ -50,9 +50,10 @@
       <input type="text" name="city" placeholder="Enter city name" required>
       <input type="submit" value="Get Weather">
   </form>
-  {% if data %}
+  {% if data.coordinate %}
   <div class="result">
       <h2>Weather in {{ data.country_code }}</h2>
+      <p>City: {{data.city}}</p>
       <p>Coordinates: {{ data.coordinate }}</p>
       <p>Temperature: {{ data.temp }}</p>
       <p>Pressure: {{ data.pressure }} hPa</p>
