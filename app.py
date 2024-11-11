@@ -1,9 +1,5 @@
 from flask import Flask, render_template, request 
-
-# import json to load JSON data to a python dictionary 
 import json 
-
-# urllib.request to make a request to api 
 import urllib.request 
 
 
@@ -18,9 +14,9 @@ def weather():
 		city = 'delhi'
 
 	
-	api = '86533df1c302d2d11cb7cda2898b8db4'
+	api ='86533df1c302d2d11cb7cda2898b8db4'
 
-	source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q =' + city + '&appid =' + api).read() 
+	source = urllib.request.urlopen(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}').read() 
 	list_of_data = json.loads(source) 
 
 	# data for variable list_of_data 
